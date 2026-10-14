@@ -1,6 +1,6 @@
 import { IMailProvider, MailMessage, MailResult } from "../providers";
 
-interface OrderConfirmationData {
+export interface OrderConfirmationData {
   to: string;
   orderId: number;
   total: number;
@@ -10,21 +10,31 @@ interface OrderConfirmationData {
 export class NotificationService {
   constructor(private provider: IMailProvider) { };
 
-  buildHtml(order: OrderConfirmationData): string {
+  private buildHtml(data: OrderConfirmationData): string {
     return `
       <h1>Pedido Confirmado!</h1>
-      <p>Olá, seu pedido <b>#${order.orderId}</b> foi processado com sucesso.</p>
-      <p>Total: <strong>R$ ${order.total}</strong></p>
+      <p>Olá, seu pedido <b>#${data.orderId}</b> foi processado com sucesso.</p>
+      <p>Total: <strong>R$ ${data.total}</strong></p>
       <ul>
-        ${order.products.map(p => `<li>${p}</li>`).join('')}
+        ${data.products.map(p => `<li>${p}</li>`).join('')}
       </ul>
     `
   }
 
-  buildNotification(data: OrderConfirmationData): MailMessage {
+  private buildNotification(data: OrderConfirmationData): MailMessage {
     let mail: MailMessage = {
-      to: order.to,
-
+      to: data.to,
+      subject: `Pedido ${data.orderId} Confirmado!`,
+      text: `Olá, seu pedido #${data.orderId} no valor de R$ ${data.total} foi confirmado.`,
+      html: this.buildHtml(data),
     }
+
+    return mail;
+  }
+
+  async sendNotification(data: OrderConfirmationData): Promise<MailResult> {
+    let mail: MailMessage = this.buildNotification(data);
+
+    return this.provider.sendMail(mail);
   }
 }
