@@ -1,4 +1,4 @@
-import { AppError } from '.';
+import { AppError } from './AppError';
 
 export class CardDeniedError extends AppError {
   constructor(message: string = 'Cartão recusado') {

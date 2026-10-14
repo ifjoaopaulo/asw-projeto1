@@ -1,4 +1,4 @@
-import { AppError } from '.';
+import { AppError } from './AppError';
 
 export class UnsupportedPaymentMethodError extends AppError {
   constructor(message: string = 'Tipo de pagamento não suportado') {

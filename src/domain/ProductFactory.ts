@@ -1,6 +1,6 @@
-import { IProduct } from ".";
-import { PhysicalProduct } from ".";
-import { DigitalProduct } from ".";
+import { IProduct } from "./IProduct";
+import { PhysicalProduct } from "./PhysicalProduct";
+import { DigitalProduct } from "./DigitalProduct";
 
 export class ProductFactory {
   static createProduct(data: any): IProduct {
