@@ -9,7 +9,7 @@ export class DigitalProduct implements IProduct {
     public price: number,
   ) { }
 
-  calculateFreight(quantity: number): number {
+  calculateFreight(): number {
     return 0;
   }
 }

@@ -9,7 +9,7 @@ export class PhysicalProduct implements IProduct {
     public price: number,
   ) { }
 
-  calculateFreight(quantity: number): number {
-    return (this.price * quantity) + 10;
+  calculateFreight(): number {
+    return 10;
   }
 }

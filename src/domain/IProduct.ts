@@ -4,5 +4,5 @@ export interface IProduct {
   type: string;
   price: number;
 
-  calculateFreight(quantity: number): number;
+  calculateFreight(): number;
 }
