@@ -4,6 +4,6 @@ let physBook: PhysicalProduct = ProductFactory.createProduct({ id: 1, name: 'Cle
 let digiBook: DigitalProduct = ProductFactory.createProduct({ id: 2, name: 'The pragmatic engineer', price: 10, type: 'digital' });
 let unknownBook = ProductFactory.createProduct({ id: 3, name: 'Hello?', price: 5, type: 'subscription' });
 
-console.log(physBook, `Freight: ${physBook.calculateFreight(1)}`);
-console.log(digiBook, `Freight: ${digiBook.calculateFreight(1)}`);
-console.log(unknownBook, `Freight: ${unknownBook.calculateFreight(1)}`);
+console.log(physBook, `Freight: ${physBook.calculateFreight()}`);
+console.log(digiBook, `Freight: ${digiBook.calculateFreight()}`);
+console.log(unknownBook, `Freight: ${unknownBook.calculateFreight()}`);
