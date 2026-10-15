@@ -4,9 +4,9 @@ import { DigitalProduct } from "./DigitalProduct";
 
 export class ProductFactory {
   static createProduct(data: any): IProduct {
-    if (data.type === 'physical') {
+    if (data.type === "physical") {
       return new PhysicalProduct(data.id, data.name, data.price);
-    } else if (data.type === 'digital') {
+    } else if (data.type === "digital") {
       return new DigitalProduct(data.id, data.name, data.price);
     }
 

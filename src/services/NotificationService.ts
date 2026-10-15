@@ -8,7 +8,7 @@ export interface OrderConfirmationData {
 }
 
 export class NotificationService {
-  constructor(private provider: IMailProvider) { };
+  constructor(private provider: IMailProvider) {}
 
   private buildHtml(data: OrderConfirmationData): string {
     return `
@@ -16,9 +16,9 @@ export class NotificationService {
       <p>Olá, seu pedido <b>#${data.orderId}</b> foi processado com sucesso.</p>
       <p>Total: <strong>R$ ${data.total}</strong></p>
       <ul>
-        ${data.products.map(p => `<li>${p}</li>`).join('')}
+        ${data.products.map((p) => `<li>${p}</li>`).join("")}
       </ul>
-    `
+    `;
   }
 
   private buildNotification(data: OrderConfirmationData): MailMessage {
@@ -27,7 +27,7 @@ export class NotificationService {
       subject: `Pedido ${data.orderId} Confirmado!`,
       text: `Olá, seu pedido #${data.orderId} no valor de R$ ${data.total} foi confirmado.`,
       html: this.buildHtml(data),
-    }
+    };
 
     return mail;
   }

@@ -1,4 +1,4 @@
-import { IProduct } from './index';
+import { IProduct } from "./index";
 
 export class DigitalProduct implements IProduct {
   type: string = "digital";
@@ -7,7 +7,7 @@ export class DigitalProduct implements IProduct {
     public id: number,
     public name: string,
     public price: number,
-  ) { }
+  ) {}
 
   calculateFreight(): number {
     return 0;

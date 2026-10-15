@@ -1,4 +1,4 @@
-import { IProduct } from './index';
+import { IProduct } from "./index";
 
 export class PhysicalProduct implements IProduct {
   type: string = "physical";
@@ -7,7 +7,7 @@ export class PhysicalProduct implements IProduct {
     public id: number,
     public name: string,
     public price: number,
-  ) { }
+  ) {}
 
   calculateFreight(): number {
     return 10;

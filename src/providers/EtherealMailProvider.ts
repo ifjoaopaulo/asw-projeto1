@@ -1,8 +1,8 @@
-import nodemailer from 'nodemailer';
-import logger from '../lib/logger';
-import { getMailClient } from '../lib/mail';
-import { MailMessage } from './MailMessage';
-import { IMailProvider, MailResult } from './IMailProvider';
+import nodemailer from "nodemailer";
+import logger from "../lib/logger";
+import { getMailClient } from "../lib/mail";
+import { MailMessage } from "./MailMessage";
+import { IMailProvider, MailResult } from "./IMailProvider";
 
 export class EtherealMailProvider implements IMailProvider {
   async sendMail(mail: MailMessage): Promise<MailResult> {
@@ -10,7 +10,10 @@ export class EtherealMailProvider implements IMailProvider {
 
     const info = await mailer.sendMail({
       from: '"DevStore" <noreply@devstore.com>',
-      to: mail.to, subject: mail.subject, text: mail.text, html: mail.html
+      to: mail.to,
+      subject: mail.subject,
+      text: mail.text,
+      html: mail.html,
     });
 
     const url = nodemailer.getTestMessageUrl(info);
